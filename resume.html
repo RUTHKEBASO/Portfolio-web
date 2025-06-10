@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resume - Ruth Kebaso</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f9f9f9;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: #002244;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #01497c;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #ffcc00;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .resume-section {
+      margin-bottom: 2rem;
+    }
+
+    .resume-section h2 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+      color: #002244;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 0.5rem;
+    }
+
+    ul li {
+      margin-bottom: 1rem;
+    }
+
+    .upload-certificates {
+      margin-top: 2rem;
+    }
+
+    .upload-certificates label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+    }
+
+    .upload-certificates input[type="file"] {
+      padding: 0.5rem;
+    }
+
+    .certificate-gallery {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .certificate-item {
+      width: 150px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      background: #fafafa;
+      padding: 0.5rem;
+    }
+
+    .certificate-item img, .certificate-item canvas {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .certificate-item a {
+      font-size: 0.9rem;
+      display: block;
+      word-break: break-word;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Resume - Ruth Kebaso</h1>
+  <p>P.O Box5083-00200, Nairobi | +254 79699839 | ruthkebaso18@gmail.com</p>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="resume.html">Resume</a>
+  <a href="project&labs.html">Projects & Labs</a>
+</nav>
+
+<main>
+
+  <section class="resume-section">
+    <h2>Academic Background</h2>
+    <ul>
+      <li><strong>BSc. Information Technology</strong> — Zetech University<br />
+        Second Class Upper Division, 2021–2024
+      </li>
+    </ul>
+  </section>
+
+  <section class="resume-section">
+    <h2>Work Experience</h2>
+    <ul>
+      <li>
+        <strong>IT Intern – Gertrude's Children's Hospital</strong> (Jan 2025 – April 2025)
+        <ul>
+          <li>Assisted in managing hospital systems including patient record management software</li>
+          <li>Monitored and maintained LAN and Wi-Fi connectivity within clinical and admin blocks</li>
+          <li>Provided first-level support for staff on IT issues including software, printer, and login problems</li>
+          <li>Performed routine updates and data backups for hospital computers</li>
+          <li>Collaborated with the IT team to maintain cybersecurity best practices across departments</li>
+        </ul>
+      </li>
+      <li>
+        <strong>IT Intern – Ministry of Cooperative</strong> (July 2024 – October2024)
+        <ul>
+          <li>Crimped and tested Ethernet cables for office networks</li>
+          <li>Repaired and maintained printers and PCs</li>
+          <li>Installed and updated Windows OS and application software</li>
+          <li>Troubleshot printer, PC, and network connectivity issues</li>
+          <li>Documented resolved issues and assisted staff with tech support</li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="resume-section">
+    <h2>Certifications</h2>
+    <ul>
+      <li>Cybersecurity Certificate (ongoing)</li>
+      <li>Tableau certificate</li>
+      <li>Power BI certificate</li>
+      <li>Networking certificate CCNA (ongoing)</li>
+      <li>Machine learning certificate</li>
+    </ul>
+
+    <div class="upload-certificates">
+      <label for="cert-upload">Upload Your Certificates:</label>
+      <input type="file" id="cert-upload" name="certificates" multiple accept=".pdf,image/*" />
+    </div>
+
+    <div id="certificateGallery" class="certificate-gallery"></div>
+  </section>
+
+  <section class="resume-section">
+    <h2>Skills</h2>
+    <ul>
+      <li><strong>Networking:</strong> Subnetting, VLANs, Routing, DNS, DHCP</li>
+      <li><strong>Security:</strong> Packet analysis, threat detection, OSINT, SOC alerting</li>
+      <li><strong>Hardware:</strong> PC/printer maintenance, hardware troubleshooting</li>
+      <li><strong>Data Analysis:</strong> Power BI, Tableau, Excel, Python, SQL</li>
+      <li><strong>Cloud:</strong> Basic AWS and virtualization concepts</li>
+      <li><strong>Web Application Development:</strong> HTML, CSS, JavaScript, PHP</li>
+      <li><strong>Soft Skills:</strong> Communication, leadership, adaptability, inquisitiveness</li>
+    </ul>
+  </section>
+
+</main>
+
+<script>
+  const uploadInput = document.getElementById("cert-upload");
+  const gallery = document.getElementById("certificateGallery");
+
+  uploadInput.addEventListener("change", function () {
+    gallery.innerHTML = "";
+    Array.from(this.files).forEach(file => {
+      const reader = new FileReader();
+
+      reader.onload = function (e) {
+        const certItem = document.createElement("div");
+        certItem.classList.add("certificate-item");
+
+        if (file.type.startsWith("image/")) {
+          certItem.innerHTML = `<img src="${e.target.result}" alt="${file.name}" />`;
+        } else if (file.type === "application/pdf") {
+          const canvas = document.createElement("canvas");
+          certItem.appendChild(canvas);
+          const link = document.createElement("a");
+          link.href = e.target.result;
+          link.download = file.name;
+          link.textContent = file.name;
+          certItem.appendChild(link);
+          gallery.appendChild(certItem);
+
+          const loadingTask = pdfjsLib.getDocument({ data: e.target.result.split(',')[1] });
+          loadingTask.promise.then(pdf => {
+            pdf.getPage(1).then(page => {
+              const viewport = page.getViewport({ scale: 1 });
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+
+              const renderContext = {
+                canvasContext: canvas.getContext('2d'),
+                viewport: viewport
+              };
+              page.render(renderContext);
+            });
+          }).catch(err => {
+            console.error('Error rendering PDF:', err);
+          });
+        }
+
+        gallery.appendChild(certItem);
+      };
+
+      reader.readAsDataURL(file);
+    });
+  });
+</script>
+
+</body>
+</html>
